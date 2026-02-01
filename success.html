@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<html>
+<head>
+  <title>Booking Success</title>
+  <style>
+/* Global styles for all pages */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+}
+
+.container {
+  width: 400px;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  margin: 50px auto; /* center horizontally */
+  text-align: center;
+}
+
+h2 {
+  color: #007bff;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+}
+
+a:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  padding-left: 20px;
+  text-align: left;
+}
+
+
+      </style>
+</head>
+<body>
+  <div class="container">
+    <h2>✅ Booking Successful</h2>
+    <p><strong>Patient Name:</strong> <span id="name"></span></p>
+    <p><strong>Age:</strong> <span id="age"></span> years</p>
+    <p><strong>Gender:</strong> <span id="gender"></span></p>
+    <p><strong>District:</strong> <span id="district"></span></p>
+    <p><strong>Hospital:</strong> <span id="hospital"></span></p>
+
+    <a href="booking.html">Book Another Appointment</a>
+  </div>
+
+  <script>
+    document.getElementById("name").textContent = localStorage.getItem("name");
+    document.getElementById("age").textContent = localStorage.getItem("age");
+    document.getElementById("gender").textContent = localStorage.getItem("gender");
+    document.getElementById("district").textContent = localStorage.getItem("district");
+    document.getElementById("hospital").textContent = localStorage.getItem("hospital");
+  </script>
+<div style="text-align:center; margin-top:20px;">
+  <a href="medicines.html">Medicines</a> | 
+  <a href="tips.html">Health Tips</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+
+<html>
+<head>
+  <title>Medicines - HealthRoute</title>
+  <style>
+   /* Global styles for all pages */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+}
+
+.container {
+  width: 400px;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  margin: 50px auto; /* center horizontally */
+  text-align: center;
+}
+
+h2 {
+  color: #007bff;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+}
+
+a:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  padding-left: 20px;
+  text-align: left;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Medicines Recommendation</h2>
+    <label>Select Hospital</label>
+    <select id="hospitalSelect" onchange="showMedicines()">
+      <option value="">Select Hospital</option>
+      <option value="Apollo Hospital, Bhimavaram">Apollo Hospital, Bhimavaram</option>
+      <option value="District Government Hospital, Bhimavaram">District Government Hospital, Bhimavaram</option>
+      <option value="Sri Sai Multispeciality Hospital">Sri Sai Multispeciality Hospital</option>
+      <!-- Add other hospitals -->
+    </select>
+
+    <ul id="medicineList"></ul>
+  </div>
+
+  <script>
+    const medicinesData = {
+      "Apollo Hospital, Bhimavaram": ["Paracetamol", "Vitamin C", "Cough Syrup"],
+      "District Government Hospital, Bhimavaram": ["Ibuprofen", "Antibiotic Ointment", "ORS"],
+      "Sri Sai Multispeciality Hospital": ["Amoxicillin", "Calcium Tablets", "Multivitamins"]
+      // Add more hospitals + medicines
+    };
+
+    function showMedicines(){
+      const hospital = document.getElementById("hospitalSelect").value;
+      const list = document.getElementById("medicineList");
+      list.innerHTML = "";
+
+      if(medicinesData[hospital]){
+        medicinesData[hospital].forEach(med => {
+          const li = document.createElement("li");
+          li.textContent = med;
+          list.appendChild(li);
+        });
+      } else {
+        list.innerHTML = "<li>No medicines found</li>";
+      }
+    }
+  </script>
+</body>
+</html>
